@@ -29,4 +29,11 @@ function turnClick(square) {
   turn(square.target.id, huPlayer);
 }
 
+function turn(squareId, player) {
+  origBoard[squareId] = player;
+  document.getElementById(squareId).innerHTML = player;
+  let gameWon = checkWin(origBoard, player);
+  if (gameWon) gameOver(gameWon);
+}
+
 function gameOver(gameWon) {}
