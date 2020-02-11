@@ -59,6 +59,12 @@ function gameOver(gameWon) {
   for (var i = 0; i < cells.length; i++) {
     cells[i].removeEventListener("click", turnClick, false);
   }
+  declareWinner(gameWon.player == huPlayer ? "You Win!" : "You Lose.");
+}
+
+function declareWinner(who) {
+  document.querySelector(".endgame").style.display = "block";
+  document.querySelector(".endgame .text").innerText = who;
 }
 
 function emptySquares() {
