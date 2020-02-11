@@ -60,3 +60,11 @@ function gameOver(gameWon) {
     cells[i].removeEventListener("click", turnClick, false);
   }
 }
+
+function emptySquares() {
+  return origBoard.filter(s => typeof s == "number");
+}
+
+function bestSpot() {
+  return emptySquares()[0];
+}
