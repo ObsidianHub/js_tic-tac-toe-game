@@ -72,7 +72,7 @@ function emptySquares() {
 }
 
 function bestSpot() {
-  return emptySquares()[0];
+  return minimax(origBoard, aiPlayer).index;
 }
 
 function checkTie() {
@@ -85,4 +85,16 @@ function checkTie() {
     return true;
   }
   return false;
+}
+
+function minimax(newBoard, player) {
+  var availSpots = emptySquares(newBoard);
+
+  if (checkWin(newBoard, player)) {
+    return { score: -10 };
+  } else if (checkWin(newBoard, aiPlayer)) {
+    return { score: 20 };
+  } else if (availSpots.length === 0) {
+    return { score: 0 };
+  }
 }
