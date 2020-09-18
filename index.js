@@ -9,7 +9,7 @@ const winCombos = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [6, 4, 2]
+  [6, 4, 2],
 ];
 
 const cells = document.querySelectorAll(".cell");
@@ -43,7 +43,7 @@ function checkWin(board, player) {
   let plays = board.reduce((a, e, i) => (e === player ? a.concat(i) : a), []);
   let gameWon = null;
   for (let [index, win] of winCombos.entries()) {
-    if (win.every(elem => plays.indexOf(elem) > -1)) {
+    if (win.every((elem) => plays.indexOf(elem) > -1)) {
       gameWon = { index, player };
       break;
     }
@@ -68,7 +68,7 @@ function declareWinner(who) {
 }
 
 function emptySquares() {
-  return origBoard.filter(s => typeof s == "number");
+  return origBoard.filter((s) => typeof s == "number");
 }
 
 function bestSpot() {
