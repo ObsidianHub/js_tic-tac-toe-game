@@ -60,3 +60,8 @@ function gameOver(gameWon) {
   }
   declareWinner(gameWon.player == huPlayer ? "You Win!" : "You Lose.");
 }
+
+function declareWinner(who) {
+  document.querySelector(".endgame").style.display = "block";
+  document.querySelector(".endgame .text").innerText = who;
+}
